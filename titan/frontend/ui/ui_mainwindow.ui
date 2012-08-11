@@ -49,18 +49,18 @@
     <property name="title">
      <string>Open</string>
     </property>
-    <addaction name="actionImport_spec_file"/>
-    <addaction name="actionOpen_HDF5_file"/>
+    <addaction name="actionImportSpecFile"/>
+    <addaction name="actionOpenHDF5File"/>
    </widget>
    <addaction name="menuOpen"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionImport_spec_file">
+  <action name="actionImportSpecFile">
    <property name="text">
     <string>Import spec file</string>
    </property>
   </action>
-  <action name="actionOpen_HDF5_file">
+  <action name="actionOpenHDF5File">
    <property name="text">
     <string>Open HDF5 file</string>
    </property>

@@ -11,3 +11,9 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 		super(MainWindow, self).__init__(parent)
 
 		self.setupUi(self)
+
+	def on_actionImportSpecFile_triggered(self):
+		pass
+
+	def on_actionOpenHDF5File_triggered(self):
+		pass
