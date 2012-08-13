@@ -14,26 +14,22 @@
    <string>TITAN</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTreeView" name="treeview">
+   <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>1</y>
-      <width>291</width>
-      <height>561</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>289</x>
       <y>-1</y>
-      <width>511</width>
-      <height>561</height>
+      <width>801</width>
+      <height>551</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticallayout1"/>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <widget class="QTreeView" name="treeview"/>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <layout class="QVBoxLayout" name="verticallayout1"/>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -59,10 +55,16 @@
    <property name="text">
     <string>Import spec file</string>
    </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionOpenHDF5File">
    <property name="text">
     <string>Open HDF5 file</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
    </property>
   </action>
  </widget>
