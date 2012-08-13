@@ -1,6 +1,7 @@
 import sys
+import os
 
-from PyQt4 import QtGui
+from PyQt4 import QtCore, QtGui
 
 from .ui import ui_mainwindow
 from .plotpane import ImshowCanvas, PlotCanvas
@@ -22,5 +23,14 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 	def on_actionImportSpecFile_triggered(self):
 		pass
 
-	def on_actionOpenHDF5File_triggered(self):
-		pass
+	@QtCore.pyqtSignature("")  # Magic that prevents double signal-emits
+	def on_actionOpenHDF5File_triggered(self, filename=None):
+		if filename:
+			print "Not implemented yet"
+		else:
+			filename = QtGui.QFileDialog.getOpenFileName(
+						self,
+						"Select HDF5 file to open",
+						os.getcwd(),
+						"HDF files (*.h5, *.hdf, *.hdf5)"
+						)
