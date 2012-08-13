@@ -20,8 +20,17 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 		self.verticallayout1.addWidget(self.twod_viewer)
 		self.verticallayout1.addWidget(self.oned_viewer)
 
-	def on_actionImportSpecFile_triggered(self):
-		pass
+	@QtCore.pyqtSignature("")
+	def on_actionImportSpecFile_triggered(self, filename=None):
+		if filename: 
+			print "Not implemented yet"
+		else:
+			filename = QtGui.QFileDialog.getOpenFileName(
+						self,
+						"Select spec file to import",
+						os.getcwd(),
+						"Spec files (*.dat, *)"
+						)
 
 	@QtCore.pyqtSignature("")  # Magic that prevents double signal-emits
 	def on_actionOpenHDF5File_triggered(self, filename=None):
