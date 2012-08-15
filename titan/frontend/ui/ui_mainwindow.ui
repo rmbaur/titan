@@ -48,7 +48,16 @@
     <addaction name="actionImportSpecFile"/>
     <addaction name="actionOpenHDF5File"/>
    </widget>
+   <widget class="QMenu" name="menuAnalyze">
+    <property name="title">
+     <string>Analyze</string>
+    </property>
+    <addaction name="actionFFT"/>
+    <addaction name="actionPCA"/>
+    <addaction name="actionGPSA"/>
+   </widget>
    <addaction name="menuOpen"/>
+   <addaction name="menuAnalyze"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionImportSpecFile">
@@ -65,6 +74,26 @@
    </property>
    <property name="iconVisibleInMenu">
     <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionFFT">
+   <property name="text">
+    <string>FFT</string>
+   </property>
+  </action>
+  <action name="actionPCA">
+   <property name="text">
+    <string>PCA</string>
+   </property>
+  </action>
+  <action name="actionGPSA">
+   <property name="text">
+    <string>GPSA</string>
+   </property>
+  </action>
+  <action name="actionSingle_shot">
+   <property name="text">
+    <string>Single-shot</string>
    </property>
   </action>
  </widget>
