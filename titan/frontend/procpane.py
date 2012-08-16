@@ -39,10 +39,10 @@ class ProcBox(QtGui.QGroupBox):
 
 		self.procs = procs
 		items = [proc.shortdesc for proc in self.procs]
-		self.current_proc = procs[0]
+		self.current_proc = self.procs[0]
 
 		self.stack = QtGui.QStackedWidget()
-		for proc in procs:
+		for proc in self.procs:
 			self.stack.addWidget(proc.widget)
 
 		self.options = QtGui.QComboBox()
