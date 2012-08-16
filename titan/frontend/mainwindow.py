@@ -30,7 +30,7 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 		self.procPane = ProcPane()
 
 		self.dataModel = DataModel()
-		self.dataView = DataView()
+		self.dataView = DataView(self.dataModel)
 		self.connect_data_model_view()
 
 		self.splitter.insertWidget(0, self.fileView)
