@@ -45,7 +45,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
     <widget class="QWidget" name="widget" native="true">
-     <widget class="QGroupBox" name="groupBox">
+     <widget class="QGroupBox" name="preBox">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -58,7 +58,7 @@
        <string>Preprocessing</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="fitBox">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -71,7 +71,7 @@
        <string>Fitting</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QGroupBox" name="postBox">
       <property name="geometry">
        <rect>
         <x>0</x>
