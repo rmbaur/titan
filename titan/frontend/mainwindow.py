@@ -11,7 +11,7 @@ from praxes.io.phynx.measurement import Measurement
 from praxes.io.phynx.dataset import Dataset
 
 from .ui import ui_mainwindow
-from .plotpane import ImshowCanvas, PlotCanvas
+from .plotpane import DataModel, DataView
 
 
 class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
@@ -26,13 +26,12 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 		self.fileModel = FileModel(self)
 		self.fileView = FileView(self.fileModel, self)
 
-		self.twod_viewer = ImshowCanvas()
-		self.oned_viewer = PlotCanvas()
+		self.dataModel = DataModel()
+		self.dataView = DataView()
 
 		self.splitter.insertWidget(0, self.fileView)
 
-		self.verticallayout1.addWidget(self.twod_viewer)
-		self.verticallayout1.addWidget(self.oned_viewer)
+		self.verticallayout1.addWidget(self.dataView)
 
 		self.proxy = None
 		self.fileView.clicked.connect(self.get_proxy_from_index)
