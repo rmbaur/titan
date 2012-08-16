@@ -1,6 +1,5 @@
 from PyQt4 import QtCore, QtGui
 
-from .ui import ui_procpane
 from ..analysis.processors import *
 
 
