@@ -44,41 +44,6 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
-    <widget class="QWidget" name="widget" native="true">
-     <widget class="QWidget" name="">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>261</width>
-        <height>751</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="procPane">
-       <item>
-        <widget class="QGroupBox" name="preBox">
-         <property name="title">
-          <string>Preprocessing</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="fitBox">
-         <property name="title">
-          <string>Fitting</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="postBox">
-         <property name="title">
-          <string>Postprocessing</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

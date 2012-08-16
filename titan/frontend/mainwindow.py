@@ -12,6 +12,7 @@ from praxes.io.phynx.dataset import Dataset
 
 from .ui import ui_mainwindow
 from .plotpane import DataModel, DataView
+from .procpane import ProcPane
 
 
 class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
@@ -26,15 +27,15 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 		self.fileModel = FileModel(self)
 		self.fileView = FileView(self.fileModel, self)
 
+		self.procPane = ProcPane()
+
 		self.dataModel = DataModel()
 		self.dataView = DataView()
 		self.connect_data_model_view()
 
 		self.splitter.insertWidget(0, self.fileView)
+		self.splitter.insertWidget(1, self.procPane)
 		self.splitter.insertWidget(2, self.dataView)
-		self.splitter.setStretchFactor(0, 1)
-		self.splitter.setStretchFactor(1, 2)
-		self.splitter.setStretchFactor(2, 1)
 
 		self.proxy = None
 		self.fileView.clicked.connect(self.get_proxy_from_index)
