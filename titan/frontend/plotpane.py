@@ -21,35 +21,35 @@ class DataModel(QtCore.QObject):
 		except TypeError:
 			self._max = 0
 
-		@property
-		def imshowdata(self):
-			return self._imshowdata
+	@property
+	def imshowdata(self):
+		return self._imshowdata
 
-		@imshowdata.setter
-		def imshowdata(self, val):
-			self._imshowdata = val
-			self._current = 0
-			self._max = len(self._imshowdata) - 1
+	@imshowdata.setter
+	def imshowdata(self, val):
+		self._imshowdata = val
+		self._current = 0
+		self._max = len(self._imshowdata) - 1
+		self.imshow_current_changed.emit()
+
+	@property
+	def plotdata(self):
+		return self._plotdata
+
+	@plotdata.setter
+	def plotdata(self, val):
+		self._plotdata = val
+		self.plot_changed.emit()
+
+	def prev(self):
+		if self._current != self._min:
+			self.current -= 1
 			self.imshow_current_changed.emit()
 
-		@property
-		def plotdata(self):
-			return self._plotdata
-
-		@plotdata.setter
-		def plotdata(self, val):
-			self._plotdata = val
-			self.plot_changed.emit()
-
-		def prev(self):
-			if self._current != self._min:
-				self.current -= 1
-				self.imshow_current_changed.emit()
-
-		def next(self):
-			if self._current != self._max:
-				self._current += 1
-				self.imshow_current_changed.emit()
+	def next(self):
+		if self._current != self._max:
+			self._current += 1
+			self.imshow_current_changed.emit()
 
 
 class DataView(QtGui.QSplitter):
