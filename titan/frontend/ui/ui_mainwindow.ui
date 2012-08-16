@@ -45,6 +45,7 @@
      <string>Open</string>
     </property>
     <addaction name="actionImportSpecFile"/>
+    <addaction name="actionImportImages"/>
     <addaction name="actionOpenHDF5File"/>
    </widget>
    <widget class="QMenu" name="menuAnalyze">
@@ -93,6 +94,11 @@
   <action name="actionSingle_shot">
    <property name="text">
     <string>Single-shot</string>
+   </property>
+  </action>
+  <action name="actionImportImages">
+   <property name="text">
+    <string>Import images</string>
    </property>
   </action>
  </widget>
