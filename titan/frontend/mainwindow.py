@@ -18,6 +18,7 @@ from .procpane import ProcPane
 class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 
 	proxy_changed = QtCore.pyqtSignal()
+	proc_options_changed = QtCore.pyqtSignal()
 
 	def __init__(self, parent=None):
 		super(MainWindow, self).__init__(parent)
@@ -41,6 +42,9 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 		self.fileView.clicked.connect(self.get_proxy_from_index)
 		self.proxy_changed.connect(self.update_proxy)
 
+		self.fileModel.fileAppended.connect(self.find_signals_axes)
+		self.proc_options_changed.connect(self.procPane.update_options)
+
 	def get_proxy_from_index(self, index):
 		self.proxy = self.fileModel.getProxyFromIndex(index).getNode()
 		self.proxy_changed.emit()
@@ -59,6 +63,20 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 				self.dataModel.imshowdata = self.proxy
 		except ValueError:
 			pass
+
+	def find_signals_axes(self):
+		signals = []
+		axes = []
+		files = self.fileModel.rootItem.children
+		for f in files:
+			scans = f.children
+			for s in scans:
+				group = s.getNode('%s/measurement/scalar_data' % s.name)
+				signals.append(group.signals)
+				axes.append(group.axes)
+		self.procPane.signal_options = signals
+		self.procPane.axes_options = axes
+		self.proc_options_changed.emit()
 
 	@QtCore.pyqtSignature("")
 	# Slimmed down version from Praxes

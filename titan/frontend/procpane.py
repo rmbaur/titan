@@ -14,14 +14,20 @@ class ProcPane(QtGui.QWidget):
 		self.fitprocs = [FFTFitter(), PCAFitter(), GPSAFitter()]
 		self.fitbox = ProcBox('Fitting', self.fitprocs)
 
-		self.postprocs = [Normalizer()]
+		self.postprocs = [Normalizer(), GaussFilter()]
 		self.postbox = ProcBox('Postprocessing', self.postprocs)
+
+		self.signal_options = None
+		self.axes_options = None
 
 		layout = QtGui.QVBoxLayout()
 		layout.addWidget(self.prebox)
 		layout.addWidget(self.fitbox)
 		layout.addWidget(self.postbox)
 		self.setLayout(layout)
+
+	def update_options(self):
+		print "To do"
 
 
 class ProcBox(QtGui.QGroupBox):
