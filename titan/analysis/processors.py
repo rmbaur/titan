@@ -57,3 +57,73 @@ class BkgSubtractor(Processor):
 
 	def compute(self):
 		print "Bkg test"
+
+
+class FFTFitter(Processor):
+
+	def __init__(self):
+		super(FFTFitter, self).__init__()
+
+		self.shortdesc = 'FFT'
+		self.proc_type = 'fit'
+
+	def setup_widget(self):
+		self.periods = QtGui.QSpinBox()
+		self.pointsper = QtGui.QSpinBox()
+
+		layout = QtGui.QVBoxLayout()
+		layout.addWidget(QtGui.QLabel("Specify number of periods:"))
+		layout.addWidget(self.periods)
+		layout.addWidget(QtGui.QLabel("Specify points per period:"))
+		layout.addWidget(self.pointsper)
+		self.widget.setLayout(layout)
+
+	def compute(self):
+		print "FFT test"
+
+
+class PCAFitter(Processor):
+
+	def __init__(self):
+		super(PCAFitter, self).__init__()
+
+		self.shortdesc = 'PCA'
+		self.proc_type = 'fit'
+
+	def setup_widget(self):
+		layout = QtGui.QVBoxLayout()
+		layout.addWidget(QtGui.QLabel("No adjustable parameters"))
+		self.widget.setLayout(layout)
+
+	def compute(self):
+		print "PCA test"
+
+
+class GPSAFitter(Processor):
+
+	def __init__(self):
+		super(GPSAFitter, self).__init__()
+
+		self.shortdesc = 'GPSA'
+		self.proc_type = 'fit'
+
+	def setup_widget(self):
+		pass
+
+	def compute(self):
+		print "GPSA test"
+
+
+class Normalizer(Processor):
+
+	def __init__(self):
+		super(Normalizer, self).__init__()
+
+		self.shortdesc = 'Normalize'
+		self.proc_type = 'post'
+
+	def setup_widget(self):
+		pass
+
+	def compute(self):
+		print "Normalize test"
