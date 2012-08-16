@@ -65,15 +65,15 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 			pass
 
 	def find_signals_axes(self):
-		signals = []
-		axes = []
+		signals = {}
+		axes = {}
 		files = self.fileModel.rootItem.children
 		for f in files:
 			scans = f.children
 			for s in scans:
 				group = s.getNode('%s/measurement/scalar_data' % s.name)
-				signals.append(group.signals)
-				axes.append(group.axes)
+				signals[f.file_name] = group.signals
+				axes[f.file_name] = group.axes
 		self.procPane.signal_options = signals
 		self.procPane.axes_options = axes
 		self.proc_options_changed.emit()

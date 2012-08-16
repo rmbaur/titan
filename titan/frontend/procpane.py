@@ -27,7 +27,10 @@ class ProcPane(QtGui.QWidget):
 		self.setLayout(layout)
 
 	def update_options(self):
-		print "To do"
+		self.prebox.update_widgets(self.signal_options, self.axes_options)
+		self.fitbox.update_widgets(self.signal_options, self.axes_options)
+		self.postbox.update_widgets(self.signal_options, self.axes_options)
+
 
 
 class ProcBox(QtGui.QGroupBox):
@@ -64,3 +67,7 @@ class ProcBox(QtGui.QGroupBox):
 		self.go_button.clicked.disconnect(self.current_proc.compute)
 		self.current_proc = self.procs[idx]
 		self.go_button.clicked.connect(self.current_proc.compute)
+
+	def update_widgets(self, signals, axes):
+		for proc in self.procs:
+			proc.update_widget(signals, axes)

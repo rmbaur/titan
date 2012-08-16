@@ -12,7 +12,7 @@ class Processor(object):
 	def setup_widget(self):
 		pass
 
-	def update_widget(self):
+	def update_widget(self, signals, axes):
 		pass
 
 	def compute(self):
@@ -34,6 +34,11 @@ class Rescaler(Processor):
 		layout.addWidget(QtGui.QLabel("Select dataset to use for rescaling:"))
 		layout.addWidget(self.counters)
 		self.widget.setLayout(layout)
+
+	def update_widget(self, signals, axes):
+		self.counters.clear()
+		for key in signals:
+			self.counters.addItems(['%s: %s' % (key, s) for s in signals[key]])
 
 	def compute(self):
 		print "Rescale test"
@@ -114,6 +119,11 @@ class GPSAFitter(Processor):
 		layout.addWidget(QtGui.QLabel("Select position data:"))
 		layout.addWidget(self.axes)
 		self.widget.setLayout(layout)
+
+	def update_widget(self, signals, axes):
+		self.axes.clear()
+		for key in axes:
+			self.axes.addItems(['%s: %s' % (key, a) for a in axes[key] ])
 
 	def compute(self):
 		print "GPSA test"
