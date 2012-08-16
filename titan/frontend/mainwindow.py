@@ -8,6 +8,7 @@ import numpy as np
 from praxes.frontend.phynx import FileModel, FileView
 from praxes.io.phynx.migration.spec import convert_to_phynx
 from praxes.io.phynx.measurement import Measurement
+from praxes.io.phynx.dataset import Dataset
 
 from .ui import ui_mainwindow
 from .plotpane import ImshowCanvas, PlotCanvas
@@ -101,3 +102,27 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 						)
 		if filename:
 			self.fileModel.openFile(str(filename))
+
+	@QtCore.pyqtSignature("")
+	def on_actionFFT_triggered(self):
+		if self.validate_proxy():
+			print "ok"
+		pass
+
+	@QtCore.pyqtSignature("")
+	def on_actionPCA_triggered(self):
+		if self.validate_proxy():
+			print "ok"
+		pass
+
+	@QtCore.pyqtSignature("")
+	def on_actionGPSA_triggered(self):
+		if self.validate_proxy():
+			print "ok"
+		pass
+
+	def validate_proxy(self):
+		if not isinstance(self.proxy, Dataset):
+			return False
+		else:
+			return True
