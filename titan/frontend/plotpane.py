@@ -43,7 +43,7 @@ class DataModel(QtCore.QObject):
 
 	def prev(self):
 		if self._current != self._min:
-			self.current -= 1
+			self._current -= 1
 			self.imshow_current_changed.emit()
 
 	def next(self):
@@ -106,7 +106,7 @@ class Canvas(FigureCanvasQTAgg):
 class ImshowCanvas(Canvas):
 
 	def update_figure(self, data):
-		self.axes.imshow(data)
+		self.axes.imshow(data, origin='lower')
 		self.draw()
 
 
