@@ -45,44 +45,38 @@
      <enum>Qt::Horizontal</enum>
     </property>
     <widget class="QWidget" name="widget" native="true">
-     <widget class="QGroupBox" name="preBox">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>251</width>
-        <height>211</height>
+        <width>261</width>
+        <height>751</height>
        </rect>
       </property>
-      <property name="title">
-       <string>Preprocessing</string>
-      </property>
-     </widget>
-     <widget class="QGroupBox" name="fitBox">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>270</y>
-        <width>251</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Fitting</string>
-      </property>
-     </widget>
-     <widget class="QGroupBox" name="postBox">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>540</y>
-        <width>251</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Postprocessing</string>
-      </property>
+      <layout class="QVBoxLayout" name="procPane">
+       <item>
+        <widget class="QGroupBox" name="preBox">
+         <property name="title">
+          <string>Preprocessing</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="fitBox">
+         <property name="title">
+          <string>Fitting</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="postBox">
+         <property name="title">
+          <string>Postprocessing</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
