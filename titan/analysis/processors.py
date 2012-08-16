@@ -108,7 +108,12 @@ class GPSAFitter(Processor):
 		self.proc_type = 'fit'
 
 	def setup_widget(self):
-		pass
+		self.axes = QtGui.QComboBox()
+
+		layout = QtGui.QVBoxLayout()
+		layout.addWidget(QtGui.QLabel("Select position data:"))
+		layout.addWidget(self.axes)
+		self.widget.setLayout(layout)
 
 	def compute(self):
 		print "GPSA test"
@@ -123,7 +128,32 @@ class Normalizer(Processor):
 		self.proc_type = 'post'
 
 	def setup_widget(self):
-		pass
+		self.ref = QtGui.QComboBox()
+
+		layout = QtGui.QVBoxLayout()
+		layout.addWidget(QtGui.QLabel("Select reference dataset:"))
+		layout.addWidget(self.ref)
+		self.widget.setLayout(layout)
 
 	def compute(self):
 		print "Normalize test"
+
+
+class GaussFilter(Processor):
+
+	def __init__(self):
+		super(GaussFilter, self).__init__()
+
+		self.shortdesc = 'Gaussian filter'
+		self.proc_type = 'post'
+
+	def setup_widget(self):
+		self.filtersize = QtGui.QSpinBox()
+
+		layout = QtGui.QVBoxLayout()
+		layout.addWidget(QtGui.QLabel("Select size of blur (pixels):"))
+		layout.addWidget(self.filtersize)
+		self.widget.setLayout(layout)
+
+	def compute(self):
+		print "Gauss test"
