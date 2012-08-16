@@ -28,6 +28,57 @@
       <property name="title">
        <string>Preprocessing</string>
       </property>
+      <widget class="QComboBox" name="preOptions">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>241</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="preButton">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>220</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Go</string>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="preProgressBar">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>151</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QWidget" name="preStackBox" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>241</width>
+         <height>161</height>
+        </rect>
+       </property>
+      </widget>
+      <zorder>preOptions</zorder>
+      <zorder>preButton</zorder>
+      <zorder>preProgressBar</zorder>
+      <zorder>preStackBox</zorder>
+      <zorder>fitBox</zorder>
      </widget>
     </item>
     <item>
@@ -35,6 +86,57 @@
       <property name="title">
        <string>Fitting</string>
       </property>
+      <widget class="QComboBox" name="fitOptions">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>241</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="fitButton">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>220</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Go</string>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="fitProgressBar">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>151</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QWidget" name="fitStackBox" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>241</width>
+         <height>161</height>
+        </rect>
+       </property>
+      </widget>
+      <zorder>fitOptions</zorder>
+      <zorder>postBox</zorder>
+      <zorder>fitButton</zorder>
+      <zorder>fitProgressBar</zorder>
+      <zorder>fitStackBox</zorder>
      </widget>
     </item>
     <item>
@@ -42,6 +144,52 @@
       <property name="title">
        <string>Postprocessing</string>
       </property>
+      <widget class="QComboBox" name="postOptions">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>241</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="postButton">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>220</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Go</string>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="postProgressBar">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>151</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QWidget" name="postStackBox" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>241</width>
+         <height>161</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
