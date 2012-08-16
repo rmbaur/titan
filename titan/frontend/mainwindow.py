@@ -45,9 +45,9 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 							"HDF files (*.h5 *.hdf *.hdf5)",
 							)
 			if h5_filename:
-				h5file = convert_to_phynx(filename, h5_filename=h5_filename)
+				h5file = convert_to_phynx(str(filename), h5_filename=str(h5_filename))
 				h5file.close()
-				self.openFile(h5_filename)
+				self.fileModel.openFile(str(h5_filename))
 
 
 	@QtCore.pyqtSignature("")  # Magic that prevents double signal-emits
