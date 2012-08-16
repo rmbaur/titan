@@ -28,17 +28,36 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 
 		self.dataModel = DataModel()
 		self.dataView = DataView()
+		self.connect_data_model_view()
 
 		self.splitter.insertWidget(0, self.fileView)
-
-		self.verticallayout1.addWidget(self.dataView)
+		self.splitter.insertWidget(2, self.dataView)
+		self.splitter.setStretchFactor(0, 1)
+		self.splitter.setStretchFactor(1, 2)
+		self.splitter.setStretchFactor(2, 1)
 
 		self.proxy = None
 		self.fileView.clicked.connect(self.get_proxy_from_index)
+		self.proxy_changed.connect(self.update_proxy)
 
 	def get_proxy_from_index(self, index):
 		self.proxy = self.fileModel.getProxyFromIndex(index).getNode()
 		self.proxy_changed.emit()
+
+	def connect_data_model_view(self):
+		self.dataView.buttons.prev.clicked.connect(self.dataModel.prev)
+		self.dataView.buttons.next.clicked.connect(self.dataModel.next)
+		self.dataModel.imshow_current_changed.connect(self.dataView.imshow_draw)
+		self.dataModel.plot_changed.connect(self.dataView.plot_draw)
+
+	def update_proxy(self):
+		try:
+			if np.ndim(self.proxy) == 1:
+				self.dataModel.plotdata = self.proxy
+			elif np.ndim(self.proxy) > 1:
+				self.dataModel.imshowdata = self.proxy
+		except ValueError:
+			pass
 
 	@QtCore.pyqtSignature("")
 	# Slimmed down version from Praxes
@@ -101,27 +120,3 @@ class MainWindow(ui_mainwindow.Ui_MainWindow, QtGui.QMainWindow):
 						)
 		if filename:
 			self.fileModel.openFile(str(filename))
-
-	@QtCore.pyqtSignature("")
-	def on_actionFFT_triggered(self):
-		if self.validate_proxy():
-			print "ok"
-		pass
-
-	@QtCore.pyqtSignature("")
-	def on_actionPCA_triggered(self):
-		if self.validate_proxy():
-			print "ok"
-		pass
-
-	@QtCore.pyqtSignature("")
-	def on_actionGPSA_triggered(self):
-		if self.validate_proxy():
-			print "ok"
-		pass
-
-	def validate_proxy(self):
-		if not isinstance(self.proxy, Dataset):
-			return False
-		else:
-			return True
