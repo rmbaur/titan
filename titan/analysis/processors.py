@@ -40,7 +40,7 @@ class Rescaler(Processor):
 		for key in signals:
 			self.counters.addItems(['%s: %s' % (key, s) for s in signals[key]])
 
-	def compute(self):
+	def compute(self, proxy):
 		print "Rescale test"
 
 
@@ -60,7 +60,7 @@ class BkgSubtractor(Processor):
 		layout.addWidget(self.bkg)
 		self.widget.setLayout(layout)
 
-	def compute(self):
+	def compute(self, proxy):
 		print "Bkg test"
 
 
@@ -83,7 +83,7 @@ class FFTFitter(Processor):
 		layout.addWidget(self.pointsper)
 		self.widget.setLayout(layout)
 
-	def compute(self):
+	def compute(self, proxy):
 		print "FFT test"
 
 
@@ -100,7 +100,7 @@ class PCAFitter(Processor):
 		layout.addWidget(QtGui.QLabel("No adjustable parameters"))
 		self.widget.setLayout(layout)
 
-	def compute(self):
+	def compute(self, proxy):
 		print "PCA test"
 
 
@@ -125,7 +125,7 @@ class GPSAFitter(Processor):
 		for key in axes:
 			self.axes.addItems(['%s: %s' % (key, a) for a in axes[key] ])
 
-	def compute(self):
+	def compute(self, proxy):
 		print "GPSA test"
 
 
@@ -145,7 +145,7 @@ class Normalizer(Processor):
 		layout.addWidget(self.ref)
 		self.widget.setLayout(layout)
 
-	def compute(self):
+	def compute(self, proxy):
 		print "Normalize test"
 
 
@@ -165,5 +165,5 @@ class GaussFilter(Processor):
 		layout.addWidget(self.filtersize)
 		self.widget.setLayout(layout)
 
-	def compute(self):
+	def compute(self, proxy):
 		print "Gauss test"

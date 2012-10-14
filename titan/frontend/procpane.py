@@ -5,8 +5,8 @@ from ..analysis.processors import *
 
 class ProcPane(QtGui.QWidget):
 
-	def __init__(self):
-		super(ProcPane, self).__init__()
+	def __init__(self, parent=None):
+		super(ProcPane, self).__init__(parent)
 
 		self.preprocs = [Rescaler(), BkgSubtractor()]
 		self.prebox = ProcBox('Preprocessing', self.preprocs)
@@ -35,8 +35,8 @@ class ProcPane(QtGui.QWidget):
 
 class ProcBox(QtGui.QGroupBox):
 
-	def __init__(self, title, procs):
-		super(ProcBox, self).__init__()
+	def __init__(self, title, procs, parent=None):
+		super(ProcBox, self).__init__(parent)
 
 		self.setTitle(title)
 
@@ -55,18 +55,21 @@ class ProcBox(QtGui.QGroupBox):
 
 		self.options.currentIndexChanged.connect(self.stack.setCurrentIndex)
 		self.options.currentIndexChanged.connect(self.set_current_proc)
-		self.go_button.clicked.connect(self.current_proc.compute)
+		self.go_button.clicked.connect(self.compute_called)
 
 		layout = QtGui.QVBoxLayout()
 		layout.addWidget(self.options)
 		layout.addWidget(self.stack)
 		layout.addWidget(self.go_button)
 		self.setLayout(layout)
+		
+	def compute_called(self):
+		self.current_proc.compute(self.parent().parent().parent().parent().proxy)
 
 	def set_current_proc(self, idx):
-		self.go_button.clicked.disconnect(self.current_proc.compute)
+		self.go_button.clicked.disconnect(self.compute_called)
 		self.current_proc = self.procs[idx]
-		self.go_button.clicked.connect(self.current_proc.compute)
+		self.go_button.clicked.connect(self.compute_called)
 
 	def update_widgets(self, signals, axes):
 		for proc in self.procs:
