@@ -106,7 +106,7 @@ class Canvas(FigureCanvasQTAgg):
 class ImshowCanvas(Canvas):
 
 	def update_figure(self, data):
-		self.axes.imshow(data, origin='lower')
+		self.axes.imshow(data, origin='lower', cmap='gist_heat')
 		self.draw()
 
 
