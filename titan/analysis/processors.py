@@ -41,7 +41,10 @@ class Rescaler(Processor):
 			self.counters.addItems(['%s: %s' % (key, s) for s in signals[key]])
 
 	def compute(self, proxy):
-		print "Rescale test"
+		if proxy is None:
+			pass
+		else:
+			print "Rescale test"
 
 
 class BkgSubtractor(Processor):
@@ -61,7 +64,10 @@ class BkgSubtractor(Processor):
 		self.widget.setLayout(layout)
 
 	def compute(self, proxy):
-		print "Bkg test"
+		if proxy is None:
+			pass
+		else:
+			print "Bkg test"
 
 
 class FFTFitter(Processor):
@@ -84,7 +90,10 @@ class FFTFitter(Processor):
 		self.widget.setLayout(layout)
 
 	def compute(self, proxy):
-		print "FFT test"
+		if proxy is None:
+			pass
+		else:
+			print "FFT test"
 
 
 class PCAFitter(Processor):
@@ -101,7 +110,10 @@ class PCAFitter(Processor):
 		self.widget.setLayout(layout)
 
 	def compute(self, proxy):
-		print "PCA test"
+		if proxy is None:
+			pass
+		else:
+			print "PCA test"
 
 
 class GPSAFitter(Processor):
@@ -126,7 +138,10 @@ class GPSAFitter(Processor):
 			self.axes.addItems(['%s: %s' % (key, a) for a in axes[key] ])
 
 	def compute(self, proxy):
-		print "GPSA test"
+		if proxy is None:
+			pass
+		else:
+			print "GPSA test"
 
 
 class Normalizer(Processor):
@@ -146,7 +161,10 @@ class Normalizer(Processor):
 		self.widget.setLayout(layout)
 
 	def compute(self, proxy):
-		print "Normalize test"
+		if proxy is None:
+			pass
+		else:
+			print "Normalize test"
 
 
 class GaussFilter(Processor):
@@ -166,4 +184,7 @@ class GaussFilter(Processor):
 		self.widget.setLayout(layout)
 
 	def compute(self, proxy):
-		print "Gauss test"
+		if proxy is None:
+			pass
+		else:
+			print "Gauss test"
