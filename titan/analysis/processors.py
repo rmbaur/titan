@@ -44,7 +44,7 @@ class Rescaler(Processor):
 		if proxy is None:
 			pass
 		else:
-			print "Rescale test"
+			print self.counters.currentText()
 
 
 class BkgSubtractor(Processor):
@@ -67,7 +67,7 @@ class BkgSubtractor(Processor):
 		if proxy is None:
 			pass
 		else:
-			print "Bkg test"
+			print self.bkg.text()
 
 
 class FFTFitter(Processor):
@@ -93,7 +93,8 @@ class FFTFitter(Processor):
 		if proxy is None:
 			pass
 		else:
-			print "FFT test"
+			print self.periods.value()
+			print self.pointsper.value()
 
 
 class PCAFitter(Processor):
@@ -141,7 +142,7 @@ class GPSAFitter(Processor):
 		if proxy is None:
 			pass
 		else:
-			print "GPSA test"
+			print self.axes.currentText()
 
 
 class Normalizer(Processor):
