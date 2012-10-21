@@ -6,4 +6,4 @@ def fft_fit(data, periods, perperiod):
 	a0 = np.abs(ft[0] / (periods * perperiod))
 	a1 = np.abs(ft[periods] * 2 / (periods * perperiod))
 	phi = np.angle(ft[periods])
-	return a0, a1, phi
+	return {'absorption': a0, 'darkfield': a1, 'phase': phi}
