@@ -1,5 +1,6 @@
 from PyQt4 import QtGui
 
+from .fft import fft_fit
 
 class Processor(object):
 
@@ -93,8 +94,7 @@ class FFTFitter(Processor):
 		if proxy is None:
 			pass
 		else:
-			print self.periods.value()
-			print self.pointsper.value()
+			return fft_fit(proxy, self.periods.value(), self.pointsper.value())
 
 
 class PCAFitter(Processor):

@@ -64,7 +64,7 @@ class ProcBox(QtGui.QGroupBox):
 		self.setLayout(layout)
 		
 	def compute_called(self):
-		self.current_proc.compute(self.parent().parent().parent().parent().proxy)
+		res = self.current_proc.compute(self.parent().parent().parent().parent().proxy)
 
 	def set_current_proc(self, idx):
 		self.go_button.clicked.disconnect(self.compute_called)
