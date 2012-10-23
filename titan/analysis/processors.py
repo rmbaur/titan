@@ -45,7 +45,7 @@ class Rescaler(Processor):
 		if proxy is None:
 			pass
 		else:
-			print self.counters.currentText()
+			raise NotImplementedError
 
 
 class BkgSubtractor(Processor):
@@ -68,7 +68,7 @@ class BkgSubtractor(Processor):
 		if proxy is None:
 			pass
 		else:
-			print self.bkg.text()
+			raise NotImplementedError
 
 
 class FFTFitter(Processor):
@@ -114,7 +114,7 @@ class PCAFitter(Processor):
 		if proxy is None:
 			pass
 		else:
-			print "PCA test"
+			raise NotImplementedError
 
 
 class GPSAFitter(Processor):
@@ -142,7 +142,7 @@ class GPSAFitter(Processor):
 		if proxy is None:
 			pass
 		else:
-			print self.axes.currentText()
+			raise NotImplementedError
 
 
 class Normalizer(Processor):
@@ -165,7 +165,7 @@ class Normalizer(Processor):
 		if proxy is None:
 			pass
 		else:
-			print "Normalize test"
+			raise NotImplementedError
 
 
 class GaussFilter(Processor):
@@ -188,4 +188,4 @@ class GaussFilter(Processor):
 		if proxy is None:
 			pass
 		else:
-			print "Gauss test"
+			raise NotImplementedError
