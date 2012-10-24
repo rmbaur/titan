@@ -2,6 +2,7 @@ from PyQt4 import QtGui
 
 from .fft import fft_fit
 from .pca import pca_fit
+from .background import bkg_subtract
 
 class Processor(object):
 
@@ -69,7 +70,7 @@ class BkgSubtractor(Processor):
 		if proxy is None:
 			pass
 		else:
-			raise NotImplementedError
+			return bkg_subtract(proxy, self.bkg.text)
 
 
 class FFTFitter(Processor):
