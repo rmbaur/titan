@@ -82,12 +82,20 @@ class bdist_wininst(_bdist_wininst):
 
 
 packages = []
-for dirpath, dirnames, filenames in os.walk('.'):
+for dirpath, dirnames, filenames in os.walk('titan'):
 	if '__init__.py' in filenames:
 		packages.append('.'.join(dirpath.split(os.sep)))
 	else:
 		del(dirnames[:])
 
+scripts = []
+if sys.platform.startswith('win'):
+    # scripts calling multiprocessing must be importable
+    import shutil
+    shutil.copy('scripts/titan', 'scripts/titan.py')
+    scripts.append('scripts/titan.py')
+else:
+    scripts.append('scripts/titan')
 
 setup(name = 'TITAN',
 	  author = 'Robin M Baur',
@@ -106,5 +114,6 @@ setup(name = 'TITAN',
 	  	'h5py (>=2.0.0)',
 	  	'praxes (>=0.5.1)'
 	  	),
+	  scripts = scripts,
 	  version = '0.1.0'
      )

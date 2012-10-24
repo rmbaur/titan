@@ -13,7 +13,7 @@ from titan.frontend import mainwindow
 if __name__ == "__main__":
     qapp = QtGui.QApplication(sys.argv)
     
-    aw = mainwindow.AppWindow()
+    aw = mainwindow.MainWindow()
     aw.setWindowTitle("TITAN")
     aw.show()
     
