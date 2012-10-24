@@ -1,6 +1,7 @@
 from PyQt4 import QtGui
 
 from .fft import fft_fit
+from .pca import pca_fit
 
 class Processor(object):
 
@@ -114,7 +115,7 @@ class PCAFitter(Processor):
 		if proxy is None:
 			pass
 		else:
-			raise NotImplementedError
+			return pca_fit(proxy)
 
 
 class GPSAFitter(Processor):
