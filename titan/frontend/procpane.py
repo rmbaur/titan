@@ -8,7 +8,7 @@ class ProcPane(QtGui.QWidget):
 	def __init__(self, parent=None):
 		super(ProcPane, self).__init__(parent)
 
-		self.preprocs = [Rescaler(), BkgSubtractor()]
+		self.preprocs = [BkgSubtractor(), Rescaler()]
 		self.prebox = ProcBox('Preprocessing', self.preprocs)
 
 		self.fitprocs = [FFTFitter(), PCAFitter(), GPSAFitter()]
