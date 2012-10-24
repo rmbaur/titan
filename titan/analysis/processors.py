@@ -3,6 +3,7 @@ from PyQt4 import QtGui
 from .fft import fft_fit
 from .pca import pca_fit
 from .background import bkg_subtract
+from .gaussblur import gauss_blur
 
 class Processor(object):
 
@@ -190,4 +191,4 @@ class GaussFilter(Processor):
 		if proxy is None:
 			pass
 		else:
-			raise NotImplementedError
+			return gauss_blur(proxy, self.filtersize.value())
