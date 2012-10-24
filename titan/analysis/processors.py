@@ -70,7 +70,7 @@ class BkgSubtractor(Processor):
 		if proxy is None:
 			pass
 		else:
-			return bkg_subtract(proxy, self.bkg.text)
+			return bkg_subtract(proxy, str(self.bkg.text()))
 
 
 class FFTFitter(Processor):
